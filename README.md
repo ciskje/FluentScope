@@ -4,6 +4,8 @@ WPF (.NET 8) program showing at which **speed** and **USB standard** the machine
 USB devices are connected, with a live mode that detects connections/disconnections
 and logs them.
 
+![USBScope screenshot](screenshot.png)
+
 ## Run
 
 ```bash
