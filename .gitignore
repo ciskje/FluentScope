@@ -1,0 +1,7 @@
+bin/
+obj/
+publish/
+installer/USBScope-Setup.exe
+.vs/
+*.user
+events.log

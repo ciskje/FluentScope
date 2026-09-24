@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>USBScope</RootNamespace>
+    <AssemblyName>USBScope</AssemblyName>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Product>USBScope</Product>
+    <Company>Francesco Ferrara</Company>
+    <Copyright>© Francesco Ferrara — www.elenafrancesco.org</Copyright>
+    <!-- Auto-incrementing version: Major.YY.MMDD.HHmm (every part fits UInt16).
+         Major is bumped manually; the rest follow the local build date/time,
+         so each compilation gets a unique, increasing version. -->
+    <BuildYY>$([System.DateTime]::Now.ToString("yy"))</BuildYY>
+    <BuildMMDD>$([System.DateTime]::Now.ToString("MMdd"))</BuildMMDD>
+    <BuildHHmm>$([System.DateTime]::Now.ToString("HHmm"))</BuildHHmm>
+    <Version>1.$(BuildYY).$(BuildMMDD).$(BuildHHmm)</Version>
+    <Description>Shows at which speed and USB standard the machine's USB devices are connected (snapshot + live mode).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\usb.ids" />
+  </ItemGroup>
+
+</Project>

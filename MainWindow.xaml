@@ -1,0 +1,107 @@
+<Window x:Class="USBScope.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="USBScope — USB device speeds"
+        Height="660" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        FontSize="13">
+    <Window.Resources>
+        <!-- Row color based on negotiated speed -->
+        <Style x:Key="SpeedRowStyle" TargetType="DataGridRow">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="-1">
+                    <Setter Property="Foreground" Value="#8A8A8A"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="0">
+                    <Setter Property="Foreground" Value="#A63232"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="1">
+                    <Setter Property="Foreground" Value="#B35C14"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="2">
+                    <Setter Property="Foreground" Value="#7A6A10"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="3">
+                    <Setter Property="Foreground" Value="#1E6B34"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SpeedRank}" Value="4">
+                    <Setter Property="Foreground" Value="#14532D"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="Export _HTML report…" Click="ExportHtml_Click" />
+                <Separator />
+                <MenuItem Header="E_xit" Click="Exit_Click" />
+            </MenuItem>
+            <MenuItem Header="?">
+                <MenuItem Header="_About USBScope…" Click="About_Click" />
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="StatusText" Text="Ready." />
+            </StatusBarItem>
+        </StatusBar>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10,10,10,4">
+            <Button x:Name="RefreshButton" Content="Refresh" Width="100"
+                    Margin="0,0,14,0" Click="RefreshButton_Click" />
+            <CheckBox x:Name="LiveCheck" VerticalAlignment="Center"
+                      Content="Live mode (detect connections/disconnections and log them)"
+                      Checked="LiveCheck_Changed" Unchecked="LiveCheck_Changed" />
+        </StackPanel>
+
+        <Grid Margin="0,4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" MinHeight="120" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" MinHeight="100" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Connected devices" FontWeight="SemiBold" Margin="12,6,10,2" />
+
+            <DataGrid Grid.Row="1" x:Name="DevicesGrid"
+                      PreviewMouseLeftButtonUp="CopyRow_Click"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      HeadersVisibility="Column" GridLinesVisibility="Horizontal"
+                      RowStyle="{StaticResource SpeedRowStyle}"
+                      Margin="10,0" CanUserReorderColumns="False"
+                      SelectionMode="Single" HorizontalGridLinesBrush="#E3E3E3">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Device" Binding="{Binding DeviceName}" Width="*" MinWidth="200" />
+                    <DataGridTextColumn Header="Marca" Binding="{Binding Vendor}" Width="150" />
+                    <DataGridTextColumn Header="VID / PID" Binding="{Binding VidPid}" Width="110" />
+                    <DataGridTextColumn Header="USB standard" Binding="{Binding Standard}" Width="200" />
+                    <DataGridTextColumn Header="Speed" Binding="{Binding SpeedText}" SortMemberPath="SpeedMbps" Width="150" />
+                    <DataGridTextColumn Header="Hub / Port" Binding="{Binding Location}" Width="*" MinWidth="180" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="160" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBlock Grid.Row="2" Text="Event log (live mode)" FontWeight="SemiBold" Margin="12,10,10,2" />
+
+            <DataGrid Grid.Row="3" x:Name="EventsGrid"
+                      PreviewMouseLeftButtonUp="CopyRow_Click"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      HeadersVisibility="Column" GridLinesVisibility="Horizontal"
+                      Margin="10,0,10,8" CanUserReorderColumns="False"
+                      SelectionMode="Single" HorizontalGridLinesBrush="#E3E3E3">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Time" Binding="{Binding TimeText}" Width="150" />
+                    <DataGridTextColumn Header="Event" Binding="{Binding EventKind}" Width="100" />
+                    <DataGridTextColumn Header="Device" Binding="{Binding DeviceName}" Width="*" MinWidth="200" />
+                    <DataGridTextColumn Header="Marca" Binding="{Binding Vendor}" Width="150" />
+                    <DataGridTextColumn Header="Standard" Binding="{Binding Standard}" Width="200" />
+                    <DataGridTextColumn Header="Speed" Binding="{Binding SpeedText}" SortMemberPath="SpeedMbps" Width="150" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

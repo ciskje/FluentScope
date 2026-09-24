@@ -1,0 +1,24 @@
+<Window x:Class="USBScope.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About USBScope"
+        Height="380" Width="430"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" ShowInTaskbar="False"
+        FontSize="13">
+    <StackPanel Margin="16">
+        <TextBlock Text="USBScope" FontSize="22" FontWeight="Bold" />
+        <TextBlock x:Name="VersionText" Margin="0,2,0,10" Foreground="#555" />
+        <TextBlock TextWrapping="Wrap"
+                   Text="Shows at which speed and USB standard the machine's USB devices are connected, with a live mode that detects connections and disconnections." />
+        <TextBlock TextWrapping="Wrap" Margin="0,8,0,0" Foreground="#555"
+                   Text="Microsoft usbview-style enumeration (SetupAPI + IOCTLs on hubs), zero NuGet dependencies." />
+        <TextBlock Margin="0,12,0,0" FontWeight="SemiBold" Text="Sviluppato da Francesco Ferrara" />
+        <TextBlock Foreground="#555" Text="Tecnico del Computer — Demonte (CN) · P.IVA 03371270046" />
+        <TextBlock Margin="0,2,0,0">
+            <Hyperlink NavigateUri="https://www.elenafrancesco.org" RequestNavigate="SiteLink_Navigate">www.elenafrancesco.org</Hyperlink>
+        </TextBlock>
+        <Button Content="OK" Width="90" HorizontalAlignment="Right"
+                Margin="0,14,0,0" IsDefault="True" Click="Ok_Click" />
+    </StackPanel>
+</Window>
