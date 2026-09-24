@@ -6,6 +6,15 @@ and logs them.
 
 ![USBScope screenshot](screenshot.png)
 
+## Download
+
+📥 **[Download USBScope-Setup.exe](https://github.com/ciskje/USBScope/releases/latest/download/USBScope-Setup.exe)**
+(self-contained, no .NET runtime needed — requires administrator rights).
+All versions: [Releases](https://github.com/ciskje/USBScope/releases).
+
+> The setup is unsigned: on first run SmartScreen warns — click
+> "More info" → "Run anyway".
+
 ## Run
 
 ```bash
