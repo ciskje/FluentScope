@@ -38,9 +38,10 @@ click "More info" → "Run anyway" to proceed.
 
 ## Versioning
 
-The version auto-increments at build time (`FluentScope.csproj`):
-`Major.YY.MMDD.HHmm` (e.g. `1.26.0924.2047`), shown in `? → About FluentScope`
-and in the exe properties. Bump `Major` manually for breaking releases.
+Manual `X.Y.Z` version, single source in `<Version>` in `FluentScope.csproj`:
+`Z` = bugfix/tweak, `Y` = new feature/behavior, `X` = upheaval.
+Docs/refactor/build never change the version. It is shown in
+`? → About FluentScope` and in the exe properties.
 The Inno Setup script reads the version from the published exe, so the
 installer always matches the build with no manual sync.
 

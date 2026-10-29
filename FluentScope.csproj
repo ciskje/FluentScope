@@ -13,13 +13,9 @@
     <Product>FluentScope</Product>
     <Company>Francesco Ferrara</Company>
     <Copyright>© Francesco Ferrara — www.elenafrancesco.org</Copyright>
-    <!-- Auto-incrementing version: Major.YY.MMDD.HHmm (every part fits UInt16).
-         Major is bumped manually; the rest follow the local build date/time,
-         so each compilation gets a unique, increasing version. -->
-    <BuildYY>$([System.DateTime]::Now.ToString("yy"))</BuildYY>
-    <BuildMMDD>$([System.DateTime]::Now.ToString("MMdd"))</BuildMMDD>
-    <BuildHHmm>$([System.DateTime]::Now.ToString("HHmm"))</BuildHHmm>
-    <Version>1.$(BuildYY).$(BuildMMDD).$(BuildHHmm)</Version>
+    <!-- Manual X.Y.Z version (Z = bugfix/tweak, Y = new feature, X = upheaval).
+         Bumped only on releases; docs/refactor/build never change it. -->
+    <Version>1.0.0</Version>
     <Description>Shows at which speed and USB standard the machine's USB devices are connected (snapshot + live mode).</Description>
   </PropertyGroup>
 
