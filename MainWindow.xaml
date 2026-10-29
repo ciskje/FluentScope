@@ -1,7 +1,7 @@
-<Window x:Class="USBScope.MainWindow"
+<Window x:Class="FluentScope.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="USBScope — USB device speeds"
+        Title="FluentScope — USB device speeds"
         Height="660" Width="1000"
         WindowStartupLocation="CenterScreen"
         FontSize="13">
@@ -39,7 +39,7 @@
                 <MenuItem Header="E_xit" Click="Exit_Click" />
             </MenuItem>
             <MenuItem Header="?">
-                <MenuItem Header="_About USBScope…" Click="About_Click" />
+                <MenuItem Header="_About FluentScope…" Click="About_Click" />
             </MenuItem>
         </Menu>
 

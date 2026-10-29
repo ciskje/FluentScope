@@ -1,16 +1,16 @@
-# USBScope
+# FluentScope
 
 WPF (.NET 8) program showing at which **speed** and **USB standard** the machine's
 USB devices are connected, with a live mode that detects connections/disconnections
 and logs them.
 
-![USBScope screenshot](screenshot.png)
+![FluentScope screenshot](screenshot.png)
 
 ## Download
 
-📥 **[Download USBScope-Setup.exe](https://github.com/ciskje/USBScope/releases/latest/download/USBScope-Setup.exe)**
+📥 **[Download FluentScope-Setup.exe](https://github.com/ciskje/FluentScope/releases/latest/download/FluentScope-Setup.exe)**
 (self-contained, no .NET runtime needed — requires administrator rights).
-All versions: [Releases](https://github.com/ciskje/USBScope/releases).
+All versions: [Releases](https://github.com/ciskje/FluentScope/releases).
 
 > The setup is unsigned: on first run SmartScreen warns — click
 > "More info" → "Run anyway".
@@ -18,28 +18,28 @@ All versions: [Releases](https://github.com/ciskje/USBScope/releases).
 ## Run
 
 ```bash
-dotnet run --project USBScope.csproj          # development start (or debug.bat)
-dotnet publish USBScope.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish   # release build (or publish.bat)
+dotnet run --project FluentScope.csproj          # development start (or debug.bat)
+dotnet publish FluentScope.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish   # release build (or publish.bat)
 ```
 
 ## Installer (setup)
 
 Run `setup.bat`: it publishes a self-contained single-file Release build
 (no .NET runtime needed on the target machine) and creates
-`installer\USBScope-Setup.exe` with Inno Setup 6 (auto-detected in the standard
-locations). The setup installs per-machine to `C:\Program Files\USBScope`
+`installer\FluentScope-Setup.exe` with Inno Setup 6 (auto-detected in the standard
+locations). The setup installs per-machine to `C:\Program Files\FluentScope`
 and requires administrator rights: Start Menu shortcut (+ optional Desktop shortcut),
 Add/Remove Programs entry with uninstaller. The setup version is read
 automatically from the published exe (see Versioning below).
 The live-mode log file lives in
-`%LOCALAPPDATA%\USBScope\events.log` (the program folder is read-only).
+`%LOCALAPPDATA%\FluentScope\events.log` (the program folder is read-only).
 The setup is unsigned, so on first run Windows SmartScreen shows a warning:
 click "More info" → "Run anyway" to proceed.
 
 ## Versioning
 
-The version auto-increments at build time (`USBScope.csproj`):
-`Major.YY.MMDD.HHmm` (e.g. `1.26.0924.2047`), shown in `? → About USBScope`
+The version auto-increments at build time (`FluentScope.csproj`):
+`Major.YY.MMDD.HHmm` (e.g. `1.26.0924.2047`), shown in `? → About FluentScope`
 and in the exe properties. Bump `Major` manually for breaking releases.
 The Inno Setup script reads the version from the published exe, so the
 installer always matches the build with no manual sync.
@@ -65,7 +65,7 @@ tab-separated, ready to paste into Excel.
 
 Checking **Live mode** re-takes the snapshot every 2 seconds and, for every
 connected/disconnected device, writes a row to the **Event log** and appends to
-`events.log` (in `%LOCALAPPDATA%\USBScope`), e.g.:
+`events.log` (in `%LOCALAPPDATA%\FluentScope`), e.g.:
 
 ```
 2026-09-24 18:02:11 | Connected | Western Digital | Western Digital My Passport | USB 3.1/3.2 (SuperSpeed+) | ≥ 10 Gbit/s
@@ -87,7 +87,7 @@ Run `tools\Update-UsbIds.ps1` to refresh it from upstream, then rebuild.
 - **File → Export HTML report**: saves the device table to an `.html` file
   (title, date/time, computer, per-standard summary, rows colored as in the window).
 - **File → Exit**: closes the program.
-- **? → About USBScope**: program version and description.
+- **? → About FluentScope**: program version and description.
 
 ## How it works (technical detail)
 

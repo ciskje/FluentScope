@@ -6,14 +6,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Win32;
-using USBScope.Live;
-using USBScope.Usb;
+using FluentScope.Live;
+using FluentScope.Usb;
 
-namespace USBScope;
+namespace FluentScope;
 
 public partial class MainWindow : Window
 {
-    private readonly ObservableCollection<USBScopeInfo> _devices = new();
+    private readonly ObservableCollection<FluentScopeInfo> _devices = new();
     private readonly ObservableCollection<UsbEventInfo> _events = new();
     private readonly LiveMonitor _monitor = new();
     private readonly DispatcherTimer _timer;
@@ -42,7 +42,7 @@ public partial class MainWindow : Window
         try
         {
             // Blocking enumeration (P/Invoke): runs off the UI thread.
-            List<USBScopeInfo> current = await Task.Run(UsbEnumerator.Enumerate);
+            List<FluentScopeInfo> current = await Task.Run(UsbEnumerator.Enumerate);
 
             if (logEvents)
             {
@@ -86,7 +86,7 @@ public partial class MainWindow : Window
         var dlg = new SaveFileDialog
         {
             Filter = "HTML file (*.html)|*.html",
-            FileName = $"USBScope-{DateTime.Now:yyyyMMdd-HHmm}.html",
+            FileName = $"FluentScope-{DateTime.Now:yyyyMMdd-HHmm}.html",
         };
         if (dlg.ShowDialog(this) != true)
             return;
@@ -127,7 +127,7 @@ public partial class MainWindow : Window
             return;
         string text = item switch
         {
-            USBScopeInfo d => string.Join("\t",
+            FluentScopeInfo d => string.Join("\t",
                 d.DeviceName, d.Vendor, d.VidPid, d.Standard, d.SpeedText, d.Location, d.Status),
             UsbEventInfo ev => string.Join("\t",
                 ev.TimeText, ev.EventKind, ev.DeviceName, ev.Vendor, ev.Standard, ev.SpeedText),

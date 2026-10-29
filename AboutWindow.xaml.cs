@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
 
-namespace USBScope;
+namespace FluentScope;
 
 public partial class AboutWindow : Window
 {

@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace USBScope.Natives;
+namespace FluentScope.Natives;
 
 /// <summary>Win32 kernel32.dll functions used to open USB hubs and send IOCTLs.</summary>
 internal static partial class Kernel32

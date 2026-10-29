@@ -7,10 +7,10 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RootNamespace>USBScope</RootNamespace>
-    <AssemblyName>USBScope</AssemblyName>
+    <RootNamespace>FluentScope</RootNamespace>
+    <AssemblyName>FluentScope</AssemblyName>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <Product>USBScope</Product>
+    <Product>FluentScope</Product>
     <Company>Francesco Ferrara</Company>
     <Copyright>© Francesco Ferrara — www.elenafrancesco.org</Copyright>
     <!-- Auto-incrementing version: Major.YY.MMDD.HHmm (every part fits UInt16).

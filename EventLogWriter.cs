@@ -1,8 +1,8 @@
-namespace USBScope.Live;
+namespace FluentScope.Live;
 
 using System.IO;
 
-/// <summary>Appends live events to events.log under %LOCALAPPDATA%\USBScope.</summary>
+/// <summary>Appends live events to events.log under %LOCALAPPDATA%\FluentScope.</summary>
 public static class EventLogWriter
 {
     public static string LogPath
@@ -13,7 +13,7 @@ public static class EventLogWriter
             // (e.g. C:\Program Files installs), so logs always go here.
             string dir = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "USBScope");
+                "FluentScope");
             Directory.CreateDirectory(dir);
             return Path.Combine(dir, "events.log");
         }

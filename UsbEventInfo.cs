@@ -1,4 +1,4 @@
-namespace USBScope.Live;
+namespace FluentScope.Live;
 
 /// <summary>Connection/disconnection event detected in live mode.</summary>
 public sealed class UsbEventInfo
@@ -11,7 +11,7 @@ public sealed class UsbEventInfo
     public string SpeedText { get; }
     public double SpeedMbps { get; }
 
-    public UsbEventInfo(DateTime time, string kind, Usb.USBScopeInfo device)
+    public UsbEventInfo(DateTime time, string kind, Usb.FluentScopeInfo device)
     {
         TimeText = time.ToString("yyyy-MM-dd HH:mm:ss");
         EventKind = kind;

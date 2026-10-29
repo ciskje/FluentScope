@@ -1,4 +1,4 @@
-namespace USBScope.Usb;
+namespace FluentScope.Usb;
 
 /// <summary>
 /// IOCTL constants, GUID and flags to read USB information from user mode.

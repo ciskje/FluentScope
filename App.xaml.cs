@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace USBScope;
+namespace FluentScope;
 
 public partial class App : Application
 {

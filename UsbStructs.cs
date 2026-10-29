@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace USBScope.Usb;
+namespace FluentScope.Usb;
 
 // Pack = 1 layout: usbioctl.h structs are declared under #include <pshpack1.h>.
 

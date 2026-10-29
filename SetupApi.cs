@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace USBScope.Natives;
+namespace FluentScope.Natives;
 
 /// <summary>SetupAPI functions to enumerate USB hub devices (GUID_DEVINTERFACE_USB_HUB interface).</summary>
 internal static partial class SetupApi

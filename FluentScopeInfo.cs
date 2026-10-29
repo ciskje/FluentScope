@@ -1,7 +1,7 @@
-namespace USBScope.Usb;
+namespace FluentScope.Usb;
 
 /// <summary>Device table row: one USB device attached to a hub port.</summary>
-public sealed class USBScopeInfo
+public sealed class FluentScopeInfo
 {
     public string DeviceName { get; init; } = "";
     public string Vendor { get; init; } = "—";

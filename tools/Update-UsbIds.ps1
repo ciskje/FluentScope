@@ -26,7 +26,7 @@ foreach ($line in [IO.File]::ReadLines($tmp)) {
 }
 
 $header = @(
-    '# USBScope VID/PID database, trimmed from linux-usb.org usb.ids',
+    '# FluentScope VID/PID database, trimmed from linux-usb.org usb.ids',
     '# (vendor lines + device lines only; comments, C and interface lines removed).',
     '# Source: http://www.linux-usb.org/usb.ids',
     "# Upstream-Version: $version",

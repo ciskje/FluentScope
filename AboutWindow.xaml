@@ -1,13 +1,13 @@
-<Window x:Class="USBScope.AboutWindow"
+<Window x:Class="FluentScope.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="About USBScope"
+        Title="About FluentScope"
         Height="380" Width="430"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize" ShowInTaskbar="False"
         FontSize="13">
     <StackPanel Margin="16">
-        <TextBlock Text="USBScope" FontSize="22" FontWeight="Bold" />
+        <TextBlock Text="FluentScope" FontSize="22" FontWeight="Bold" />
         <TextBlock x:Name="VersionText" Margin="0,2,0,10" Foreground="#555" />
         <TextBlock TextWrapping="Wrap"
                    Text="Shows at which speed and USB standard the machine's USB devices are connected, with a live mode that detects connections and disconnections." />

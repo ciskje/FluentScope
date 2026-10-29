@@ -1,4 +1,4 @@
-namespace USBScope.Live;
+namespace FluentScope.Live;
 
 /// <summary>
 /// Diffs a snapshot against the previous one and produces
@@ -6,10 +6,10 @@ namespace USBScope.Live;
 /// </summary>
 public sealed class LiveMonitor
 {
-    private readonly Dictionary<string, Usb.USBScopeInfo> _last = new();
+    private readonly Dictionary<string, Usb.FluentScopeInfo> _last = new();
 
     /// <summary>Updates the state and returns the events since the first snapshot.</summary>
-    public List<UsbEventInfo> Refresh(List<Usb.USBScopeInfo> current)
+    public List<UsbEventInfo> Refresh(List<Usb.FluentScopeInfo> current)
     {
         var events = new List<UsbEventInfo>();
         var now = DateTime.Now;
@@ -30,7 +30,7 @@ public sealed class LiveMonitor
     }
 
     /// <summary>Updates the state without producing events (manual refresh).</summary>
-    public void SyncOnly(List<Usb.USBScopeInfo> current)
+    public void SyncOnly(List<Usb.FluentScopeInfo> current)
     {
         _last.Clear();
         foreach (var d in current)

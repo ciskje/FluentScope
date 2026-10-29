@@ -1,8 +1,8 @@
 using System.Runtime.InteropServices;
 using System;
-using USBScope.Natives;
+using FluentScope.Natives;
 
-namespace USBScope.Usb;
+namespace FluentScope.Usb;
 
 /// <summary>
 /// Enumerates every USB hub (GUID_DEVINTERFACE_USB_HUB interface, including each root hub)
@@ -18,9 +18,9 @@ public static class UsbEnumerator
 
     private static readonly IntPtr InvalidHandle = new(-1);
 
-    public static List<USBScopeInfo> Enumerate()
+    public static List<FluentScopeInfo> Enumerate()
     {
-        var result = new List<USBScopeInfo>();
+        var result = new List<FluentScopeInfo>();
         foreach (var hub in EnumerateHubs())
         {
             var handle = Kernel32.CreateFile(
@@ -30,7 +30,7 @@ public static class UsbEnumerator
 
             if (handle == IntPtr.Zero || handle == InvalidHandle)
             {
-                result.Add(new USBScopeInfo
+                result.Add(new FluentScopeInfo
                 {
                     DeviceName = $"Devices behind \"{hub.Name}\"",
                     Location = hub.Name,
@@ -156,7 +156,7 @@ public static class UsbEnumerator
         }
     }
 
-    private static USBScopeInfo? QueryPort(IntPtr h, int port, HubInfo hub)
+    private static FluentScopeInfo? QueryPort(IntPtr h, int port, HubInfo hub)
     {
         var v1 = QueryV1(h, port);
         if (v1 is null || v1.Value.ConnectionStatus != UsbIoctl.DeviceConnected)
@@ -202,7 +202,7 @@ public static class UsbEnumerator
             name = $"USB device (VID_{conn.DeviceDescriptor.idVendor:X4}&PID_{conn.DeviceDescriptor.idProduct:X4})";
         }
 
-        return new USBScopeInfo
+        return new FluentScopeInfo
         {
             DeviceName = name,
             Vendor = vendor,

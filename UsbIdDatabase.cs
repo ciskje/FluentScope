@@ -2,7 +2,7 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 
-namespace USBScope.Usb;
+namespace FluentScope.Usb;
 
 /// <summary>
 /// Offline VID/PID database trimmed from linux-usb.org usb.ids
@@ -12,7 +12,7 @@ namespace USBScope.Usb;
 /// </summary>
 public static class UsbIdDatabase
 {
-    private const string ResourceName = "USBScope.Data.usb.ids";
+    private const string ResourceName = "FluentScope.Data.usb.ids";
 
     private static readonly Lazy<Db> _db = new(Load, isThreadSafe: true);
 
