@@ -13,8 +13,8 @@ set "TAG=v%VER: =%"
 
 gh release view %TAG% > nul 2>&1
 if errorlevel 1 (
-  gh release create %TAG% installer\FluentScope-Setup.exe --title "FluentScope %TAG%" --notes "Self-contained Windows x64 installer (no .NET runtime needed). Requires administrator rights."
+  gh release create %TAG% installer\FluentScope-Setup-%VER%-win-x64.exe --title "FluentScope %TAG%" --notes "Self-contained Windows x64 installer (no .NET runtime needed). Requires administrator rights."
 ) else (
   echo Release %TAG% exists, uploading asset again...
-  gh release upload %TAG% installer\FluentScope-Setup.exe --clobber
+  gh release upload %TAG% installer\FluentScope-Setup-%VER%-win-x64.exe --clobber
 )

@@ -8,9 +8,9 @@ and logs them.
 
 ## Download
 
-📥 **[Download FluentScope-Setup.exe](https://github.com/ciskje/FluentScope/releases/latest/download/FluentScope-Setup.exe)**
+See the [Releases](https://github.com/ciskje/FluentScope/releases) page →
+`FluentScope-Setup-X.Y.Z-win-x64.exe`
 (self-contained, no .NET runtime needed — requires administrator rights).
-All versions: [Releases](https://github.com/ciskje/FluentScope/releases).
 
 > The setup is unsigned: on first run SmartScreen warns — click
 > "More info" → "Run anyway".
@@ -26,7 +26,7 @@ dotnet publish FluentScope.csproj -c Release -r win-x64 --self-contained true -p
 
 Run `setup.bat`: it publishes a self-contained single-file Release build
 (no .NET runtime needed on the target machine) and creates
-`installer\FluentScope-Setup.exe` with Inno Setup 6 (auto-detected in the standard
+`installer\FluentScope-Setup-<version>-win-x64.exe` with Inno Setup 6 (auto-detected in the standard
 locations). The setup installs per-machine to `C:\Program Files\FluentScope`
 and requires administrator rights: Start Menu shortcut (+ optional Desktop shortcut),
 Add/Remove Programs entry with uninstaller. The setup version is read

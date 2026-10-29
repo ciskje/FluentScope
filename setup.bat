@@ -19,7 +19,7 @@ cd installer
 if errorlevel 1 goto :error
 cd ..
 echo.
-echo Installer ready: %~dp0installer\FluentScope-Setup.exe
+echo Installer ready: %~dp0installer\FluentScope-Setup-<version>-win-x64.exe
 pause
 exit /b 0
 :error
