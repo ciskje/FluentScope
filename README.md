@@ -115,3 +115,7 @@ Zero NuGet dependencies: only P/Invoke of `kernel32.dll` and `setupapi.dll`.
   (SuperSpeedPlus capability): if it reports at most 10 Gbit/s (Gen2x1, the most common case)
   it shows exact "10 Gbit/s"; if it reports 20 (Gen2x2) it shows "10-20 Gbit/s" since the
   actual rate also depends on the port; if BOS is unreadable it shows "≥ 10 Gbit/s".
+
+## License
+
+MIT — © 2026 Francesco Ferrara. See [LICENSE](LICENSE).
